@@ -1,0 +1,50 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+    <br><br><div class="row bg-dark text-centre p-3 text-white border bottom shadow">
+        <h1 style="margin-left: 30%"><b>Enter Your Feedback<b></h1><br><br>
+    </div><br>
+
+    <div class="offset-md-4">
+        <h4>We value your Feedback. Please fill the below Form.</h4>
+    </div><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card"><br><br><br>
+                    <div class="card-header text-white bg-dark text-center">
+                        <div class="card-title">
+                            Feedback Form
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <br><br><label>Enter Your Full Name: </label><br>
+                            {{ form.name }}
+            
+                            <br><br><label>How much are you satisfied with our Mercedes-Benz? </label><br>
+                            {{ form.Satisfied }}
+                            
+                            <br><br><label>Will you give any Recommendations our Mercedes-Benz to others? (Optional) </label><br>
+                            {{ form.recommend }}
+
+                            <br><br><button type="submit" class="btn btn-dark btn btn-sm">Save</button>
+                                <a href="{% url 'index' %}" class="btn btn-danger btn btn-sm">
+                                    No, Thank You!..
+                                </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="row bg-dark text-centre p-3 text-white border bottom shadow"></div><br>
+
+{% endblock %}

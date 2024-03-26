@@ -1,0 +1,45 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<h1>Emi Calculator</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card"><br><br>
+                <div class="card-header text-white bg-dark text-center">
+                    <div class="card-title">
+                        Personal Details
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+        
+                        <br><br><label>Model Name: </label><br>
+                        {{ form.model_name }}
+                            
+                        <br><br><label>Rate of Interest: </label><br>
+                        {{ form.interest_rate }}
+                            
+                        <br><br><label>No. of Years: </label><br>
+                        {{ form.term_in_years }}
+
+                        <a href="{% static 'users/EMI.html' %}">
+                            <br><br><button type="submit" class="btn btn-dark btn btn-sm">Submit</button>
+                        </a> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+
+<!-- <h1>Emi Calculator</h1>
+
+<h1>EMI Calculation Result</h1>
+<p>EMI: {{ emi }}</p> -->
+
+{% endblock %}

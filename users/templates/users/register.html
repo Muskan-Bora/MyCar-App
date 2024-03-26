@@ -1,0 +1,48 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+{% block body %}
+
+<div class="row">
+    <img src="{% static 'car/images/Background 1.jpeg' %}" width="70%">
+        <div class="col-md-3">
+            <div class="card"><br><br>
+                <div class="card-header text-black bg-info">
+                    <div class="card-title">
+                        <h2>Mercedes Me ID</h2>
+                    </div>
+                    <div class="card-title">
+                        <h4>Create a User Account</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+            
+                        <label>Username: </label><br>
+                        {{ form.username }}
+            
+                        <br><label>Email: </label><br>
+                        {{ form.email }}
+            
+                        <br><label>First Name: </label><br>
+                        {{ form.first_name }}
+            
+                        <br><label>Last Name: </label><br>
+                        {{ form.last_name }}
+            
+                        <br><label>Password: </label><br>
+                        {{ form.password1 }}
+            
+                        <br><label>Confirm Password: </label><br>
+                        {{ form.password2 }}
+            
+                        <br><br><button type="submit" class="btn btn-warning" style="width: 60%;"><b>Sign Up</b></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

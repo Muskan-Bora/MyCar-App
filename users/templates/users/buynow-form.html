@@ -1,0 +1,57 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+    <br><br><div class="row bg-dark text-centre p-3 text-white border bottom shadow">
+        <h1 style="margin-left: 30%"><b>BOOK YOUR MERCEDES-BENZ NOW<b></h1><br><br>
+    </div><br>
+
+    <div class="offset-md-4">
+        <h4>Please fill the details below to book your Mercedes-Benz.</h4>
+    </div><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card"><br><br><br>
+                    <div class="card-header text-white bg-dark text-center">
+                        <div class="card-title">
+                            BOOK NOW
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <br><br><label>Your Mercedes-Benz Model: </label><br>
+                            {{ form.carmodel }}
+            
+                            <br><br><label>Salutation [Mr, Mrs, Ms.]: </label><br>
+                            {{ form.salutation }}
+                                
+                            <br><br><label>First Name: </label><br>
+                            {{ form.firstname }}
+                                
+                            <br><br><label>Last Name: </label><br>
+                            {{ form.lastname }}
+                                
+                            <br><br><label>Email Id: </label><br>
+                            {{ form.email }}
+                                
+                            <br><br><label>Mobile Number: </label><br>
+                            {{ form.MobileNo }}
+                                
+                            <br><br><button type="submit" class="btn btn-dark btn btn-sm">BOOK NOW</button> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="row bg-dark text-centre p-3 text-white border bottom shadow"></div><br>
+
+
+{% endblock %}

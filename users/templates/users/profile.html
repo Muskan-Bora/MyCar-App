@@ -1,0 +1,33 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card"><br><br>
+                <div class="card-header text-white bg-info">
+                    <div class="card-title">
+                        Profile
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h1> {{ prof.id }} </h1>
+                    <h3> {{ user.first_name }} </h3>
+                    <h3> {{ user.last_name }} </h3>
+                    <h3> {{ user.profile.location }} </h3>
+                    <img height="100px" width="100px" src="{{ prof.image.url }}">
+                    
+                    <br><br><br>
+
+                    <a href="{% url 'profform' prof.id %}" class="btn btn-success btn btn-sm">
+                        Edit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

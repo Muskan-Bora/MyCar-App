@@ -1,0 +1,37 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+    <br><br><div class="row">
+        <div class="col-md-6 offset-md-1 card-header">
+            <img src="{{ detailshop.image.url }}" class="card" height="550px" width="730px"><br>
+            <h2 style="font-style: initial; font-size: 1.5rem"><b>{{ detailshop.modelname }}</b></h2><br>
+            <h4 style="font-style: italic; font-size: 1rem; text-align: justify">{{ detailshop.description }}</h4><br>
+        </div>
+
+        <div class="offset-md-1 card-header">
+            <br><br><h1 style="font-size: 2rem"><b>{{ detailshop.car_body }}</b></h1><br>
+            <h2 style="font-style: initial; font-size: 1.5rem"><b>{{ detailshop.modelname }}</b></h2><br>
+            <h4 style="font-style: initial; font-size: 1.5rem; text-align: justify"><b>{{ detailshop.fuel_type }}</b></h4><br>
+            <h4 style="font-style: initial; font-size: 1.5rem; text-align: justify"><b>{{ detailshop.kW }}</b></h4><br>
+            <h4><b>On-Road Price: </b>${{ detailshop.price }}</h4>
+            <h4><b>Monthly Installment: </b>${{ detailshop.monthly_emi }}</h4><br><br>
+            <h2><b><u>Explore Finance Option</u></b></h2><br>
+            <h4><b>Down Payment: </b>${{ detailshop.down_payment }}</h4>
+            <h4><b>Finance Amount: </b>${{ detailshop.fin_amount }}</h4>
+            <h4><b>Tenure Period: </b>{{ detailshop.tenure_months }} Months</h4><br>
+            
+            <a href="{% url 'users:Shop_TestDrive' %}" style="width: 300px; text-align: center" class="btn btn-warning">
+                <h4><b>Book A Test Drive</b></h4>
+            </a><br><br>
+
+            <a href="{% url 'users:buy_now' %}" style="width: 300px; text-align: center" class="btn btn-primary">
+                <h4><b>BOOK NOW</b></h4>
+            </a>
+        </div>
+    </div><br><br>
+
+
+{% endblock %}
