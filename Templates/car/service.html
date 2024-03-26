@@ -1,0 +1,49 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block body %}
+
+    <br><div class="row bg-dark text-centre p-2 text-white border bottom shadow">
+        <h2 style="margin-left: 38%;"><b>MERCEDES-BENZ SERVICES</b></h2>
+    </div><br>
+
+    <div class="col col-md-3 offset-md-9">
+        {% if user.is_superuser %}
+            <a href="{% url 'create_service' %}" style="width: 80px" class="btn btn-warning"><b>Add</b></a>
+            <a href="{% url 'index' %}" style="width: 80px" class="btn btn-primary"><b>Back</b></a>
+        
+        {% elif user.is_authenticated %}
+            <a href="{% url 'index' %}" style="width: 80px" class="btn btn-primary"><b>Back</b></a>
+        
+        {% endif %}
+    </div><br><br>
+
+            {% for Service in SERVICES %}
+
+                <div class="row">
+                    <br><br><br><div class=" offset-md-1 col-md-4">
+                        <img src="{{ Service.image.url }} " class='card' height="350px" width="500px">
+                    </div><br><br><br><br>
+
+                    <div class="col col-md-5">
+                        <h1 style="font-size: 2rem; margin-left:18lvh"><b>{{ Service.category_service }}</b></h1><br>
+                        <h2 style="font-style: normal; font-size: 1.5rem; margin-left:18lvh"><b>{{ Service.subcategory }}</b></h2><br>
+                        <h3 style="font-style: italic; font-size: 1rem; margin-left:18lvh; text-align: justify">{{ Service.description }}</h3><br><br><br><br><br><br><br>
+                    </div><br>
+                </div>
+            {% endfor %}
+       
+
+    {% endblock body %}
+</body>
+</html>
+

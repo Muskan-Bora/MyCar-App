@@ -1,0 +1,61 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <br><label>Product Code: </label><br>
+    {{ form.prodOnline_code }}
+
+    <br><label>Car Body Type: </label><br>
+    {{ form.carbody }}
+
+    <br><label>Model Name: </label><br>
+    {{ form.model_name }}
+
+    <br><label>Description: </label><br>
+    {{ form.description }}
+
+    <br><label>Fuel Type: </label><br>
+    {{ form.fueltype }}
+
+    <br><label>kW: </label><br>
+    {{ form.kW }}
+
+    <br><label>Image: </label><br>
+    {{ form.online_image }}
+
+    <br><label>Exterior: </label><br>
+    {{ form.Exterior }}
+
+    <br><label>Exterior Image: </label><br>
+    {{ form.Exterior_image }}
+
+    <br><label>Interior: </label><br>
+    {{ form.Interior }}
+
+    <br><label>Interior Image: </label><br>
+    {{ form.Interior_image }}
+
+    <br><label>Radio Communication: </label><br>
+    {{ form.RadioCommunication }}
+
+    <br><label>Radio Communication Image: </label><br>
+    {{ form.RadCom_image }}
+
+    <br><label>Security Technology: </label><br>
+    {{ form.SecurityTech }}
+
+    <br><label>Security Tech Image: </label><br>
+    {{ form.SecurityTech_image }}
+
+    <br><label>Price: </label><br>
+    {{ form.Price }}
+
+    <button type="submit">Save</button>
+</form>
+
+{% endblock body %}

@@ -1,0 +1,27 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<h1> Add New Brand & Technology </h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <br><label>Brand Code: </label><br>
+    {{ form.brand_code }}
+
+    <br><label>Brand Category: </label><br>
+    {{ form.category_brand }}
+
+    <br><label>Description: </label><br>
+    {{ form.description }}
+
+    <br><label>Image: </label><br>
+    {{ form.image }}
+
+    <br><br><button type="submit">Save</button>
+</form>
+
+{% endblock %}

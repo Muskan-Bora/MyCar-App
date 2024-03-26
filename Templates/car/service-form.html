@@ -1,0 +1,30 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<h1> Add New Services </h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <br><label>Service Code: </label><br>
+    {{ form.service_code }}
+
+    <br><label>Service Category: </label><br>
+    {{ form.category_service }}
+
+    <br><label>Sub-Category: </label><br>
+    {{ form.subcategory }}
+
+    <br><label>Description: </label><br>
+    {{ form.description }}
+
+    <br><label>Image: </label><br>
+    {{ form.image }}
+
+    <br><br><button type="submit">Save</button>
+</form>
+
+{% endblock %}

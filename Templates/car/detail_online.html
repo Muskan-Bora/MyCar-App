@@ -1,0 +1,72 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+        <br><div class="col-md-3 offset-md-9">
+            {% if user.is_superuser %}
+                <a href="{% url 'update_MBOnline' detailonline.id %}" style="width: 80px" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete_MBOnline' detailonline.id %}" style="width: 80px" class="btn btn-danger">Delete</a>
+                <a href="{% url 'online' %}" style="width: 80px" class="btn btn-success">Back</a>
+
+            {% elif user.is_authenticated %}
+                <a href="{% url 'online' %}" style="width: 80px" class="btn btn-success">Back</a>
+            
+            {% endif %}
+        </div>
+    
+        <br><br><br><div class="row">
+            <div class="col-md-5 offset-md-1 card-header">
+                <img src="{{ detailonline.online_image.url }}" class="card" height="450px" width="600px">
+            </div>
+
+            <div class="col col-md-4 card-header">
+                <h1 style="font-size: 2rem"><b>{{ detailonline.carbody }}</b></h1><br>
+                <h2 style="font-style: initial; font-size: 1.5rem"><b>{{ detailonline.model_name }}</b></h2><br>
+                <h4 style="font-style: italic; font-size: 1rem; text-align: justify">{{ detailonline.description }}</h4><br>
+                <h4 style="font-style: initial; font-size: 1.5rem; text-align: justify"><b>{{ detailonline.fueltype }}</b></h4>
+                <h4 style="font-style: initial; font-size: 1.5rem; text-align: justify"><b>{{ detailonline.kW }}</b></h4>
+                <h4><b>Price: ${{ detailonline.Price }}</b></h4><br><br><br>
+            </div>
+        </div>
+
+        <br><div class="row bg-dark text-centre p-2 text-white border bottom shadow">
+            <h2 style="margin-left: 42%;"><b>UNIQUE FEATURES</b></h2>
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-4 offset-md-1">
+                <br><br><div>
+                    <h6 style="font-style: initial; text-align: justify"><b><u><h1>EXTERIOR: </h1></u></b><br> {{ detailonline.Exterior }}</h6><br>
+                </div><br><br><br><br><br><br><br><br><br>
+                <div>
+                    <h6 style="font-style: initial; text-align: justify"><b><u><h1>INTERIOR: </h1></u></b><br> {{ detailonline.Interior }}</h6><br>
+                </div>
+                <div><br><br><br><br><br><br><br><br><br><br>
+                    <h6 style="font-style: initial; text-align: justify"><b><u><h1>RADIO COMMUNICATION: </h1></u></b><br> {{ detailonline.RadioCommunication }}</h6><br>
+                </div>
+                <div><br><br><br><br><br><br><br><br><br><br>
+                    <h6 style="font-style: initial; text-align: justify"><b><u><h1>SECURITY TECHNOLOGY: </h1></u></b><br> {{ detailonline.SecurityTech }}</h6><br>
+                </div>      
+            </div><br><br>
+
+            <div class="col-md-1">
+                <div class="row offset-md-8">
+                    <div>
+                        <img src="{{ detailonline.Exterior_image.url }}" class="card" height="450px" width="670px">
+                    <div><br><br>
+                    <div>
+                        <img src="{{ detailonline.Interior_image.url }}" class="card" height="450px" width="670px">
+                    </div><br><br>
+                    <div>
+                        <img src="{{ detailonline.RadCom_image.url }}" class="card" height="450px" width="670px">
+                    </div><br><br>
+                    <div>
+                        <img src="{{ detailonline.SecurityTech_image.url }}" class="card" height="450px" width="670px">
+                    </div><br><br>
+                </div>
+            </div>
+        </div>
+    
+{% endblock body %}

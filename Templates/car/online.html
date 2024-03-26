@@ -1,0 +1,58 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block body %}
+
+    <br><div class="row bg-dark text-centre p-2 text-white border bottom shadow">
+        <h2 style="margin-left: 38%;"><b>Car Prices & Vehicle in Stock</b></h2>
+    </div><br>
+
+    <div class="col-sm-12">
+        <div class="row">
+            {% for MBOnline in buyonline %}
+
+                <div class="col text-centre mb-6">
+                    <div class="offset-md-1 col-md-1">
+                        <br><br><br><div style="display:block; margin: auto;">
+                            <img src="{{ MBOnline.online_image.url }} " class='card-header' height="300px" width="400px">
+                        </div>
+                    </div><br>
+
+                        <div class="card-header">
+                            <h1 style="font-size: 2rem; margin-left:18lvh">{{ MBOnline.carbody }}</h1>
+                        </div><br>
+
+                        <div class="card-header">
+                            <h2 style="font-style:italic; font-size: 1.5rem; margin-left:18lvh">{{ MBOnline.model_name }}</h2>
+                        </div>
+
+                        <div class="card-header">
+                            <h3 style="font-style: italic; font-size: 1rem; margin-left:18lvh">{{ MBOnline.fueltype }}</h3>
+                        </div>
+
+                        <div class="card-header">
+                            <h3 style="font-style: italic; font-size: 1rem; margin-left:18lvh">{{ MBOnline.kW }}</h3>
+                        </div>
+
+                        <div class="card-header" style="margin-left: 15lvh; margin-right:26lvh ;">
+                            <a href="{% url 'detail_online' MBOnline.id %}" style="width: 130px; text-align: center;" class="btn btn-success">
+                                Explore More
+                            </a>
+                        </div><br><br><br>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endblock body %}
+</body>
+</html>

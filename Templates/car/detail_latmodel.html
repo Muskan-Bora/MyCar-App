@@ -1,0 +1,56 @@
+{% extends 'car/base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{{ detaillatmodel.latestmodel_image.url }}" class="card" height="950px" width="1520px"><br><br>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="offset-md-2 col col-md-4">
+            <h1 style="font-size: 4rem">{{ detaillatmodel.carbody }}</h1><br>
+            <h2 style="font-style: initial; font-size: 3rem">{{ detaillatmodel.model_name }}</h2><br>
+            <h4 style="font-style: initial; font-size: 2.5rem; text-align: justify">{{ detaillatmodel.fueltype }}</h4><br>
+            <h3><b>Starting Price: ${{ detaillatmodel.Price }}</b></h3><br><br><br>
+        </div>
+
+        <div class="col col-md-3 offset-md-1">
+
+            {% if user.is_superuser %}
+
+                <br><a href="{% url 'update_latmodel' detaillatmodel.id %}" style="width: 100px" class="btn btn-warning"><b>Edit</b></a>
+                <a href="{% url 'delete_latmodel' detaillatmodel.id %}" style="width: 100px" class="btn btn-danger"><b>Delete</b></a>
+                <a href="{% url 'index' %}" style="width: 100px" class="btn btn-success"><b>Back</b></a><br><br><br>
+                <a href="{% url 'create_latmodel' %}">   
+                    <button type="button" class="btn btn-dark" style="width: 350px; height: 80px;"><h3><b>Add Latest Models</b></h3></button>
+                </a>
+            
+            {% elif user.is_authenticated %}
+                <a href="{% url 'index' %}" style="width: 100px" class="btn btn-success"><b>Back</b></a><br><br><br>
+            
+            {% endif %}
+        </div>
+    </div>
+    
+
+    <div class="container text-centre">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{ detaillatmodel.Exterior.url }}" class="card" style= "height:80%; width:100%">
+                <h1 style="margin-left:62lvh"><b>EXTERIOR<b></h1><br>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <img src="{{ detaillatmodel.Interior.url }}" class="card" style= "height:80%; width:100%">
+                <h1 style="margin-left:62lvh"><b>INTERIOR<b></h1>
+            </div>
+        </div>
+    </div>  
+
+{% endblock body %}
