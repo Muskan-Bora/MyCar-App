@@ -101,7 +101,7 @@ def logout_view(request):
 
 # Profile Page ---------------------------------------
 def ProfilePage(request):
-    prof = Profile.objects.get(user = request.user.id)
+    prof = Profile.objects.get(id = request.user.id)
 
     if not request.user.is_authenticated:
         return redirect('login')
